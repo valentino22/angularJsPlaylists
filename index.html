@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Playlists</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <link rel="stylesheet" href="css/main.css" />
+  <script defer src="index.js"></script>
+</head>
+
+<body ng-app="playlistsApp" ng-controller="playlistCtrl">
+  <h1 class="title">My music</h1>
+
+  <div class="all-tasks">
+    <h2 class="task-list-title">My playlists</h2>
+    <ul class="task-list">
+      <li ng-repeat="(key, playlist) in playlists" class="list-name fadeIn" ng-model="selectedPlaylistId"
+        ng-class="{'active-list':selectedPlaylistId==$index}" ng-click="setSelectedPlaylist($index);">
+        {{playlist.name}}
+      </li>
+    </ul>
+
+    <div>
+      <input type="text" class="new list" placeholder="new playlist" aria-label="new playlist" ng-model="newPlaylistName"
+        ng-keypress="$event.keyCode == 13 ? addPlaylist() : null" />
+      <button class="btn create" ng-click="addPlaylist()" aria-label="create new playlist">+</button>
+    </div>
+  </div>
+
+  <div class="play-list">
+    <div class="playlist-header">
+      <h2 class="list-title">YouTube</h2>
+      <p class="task-count">{{songs.length}} songs</p>
+    </div>
+
+    <div class="playlist-body">
+
+      <div class="tasks">
+        <div ng-repeat="song in songs" class="task fadeIn">
+          <input type="checkbox" id="song-{{$index}}" />
+          <label for="song-{{$index}}">
+            <span class="custom-checkbox"></span>
+            {{song}}
+          </label>
+        </div>
+      </div>
+
+      <div class="new-song-creator">
+        <input type="text" class="new task" ng-keypress="$event.keyCode == 13 ? addSong() : null" ng-model="newSongName"
+          placeholder="new song" aria-label="new song" />
+        <button class="btn create" ng-click="addSong()" aria-label="add new song">+</button>
+      </div>
+
+      <div class="delete-stuff">
+        <button class="btn delete" ng-click="clearListenedSongs()">Clear listened songs</button>
+        <button class="btn delete">Delete playlist</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
