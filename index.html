@@ -15,11 +15,12 @@
 <body ng-app="playlistsApp" ng-controller="playlistCtrl">
   <h1 class="title">My music</h1>
 
-  <div class="all-tasks">
-    <h2 class="task-list-title">My playlists</h2>
-    <ul class="task-list">
+  <div class="all-lists">
+    <h2 class="play-list-title">My playlists</h2>
+    <ul class="play-lists">
       <li ng-repeat="(key, playlist) in playlists" class="list-name fadeIn" ng-model="selectedPlaylistId"
-        ng-class="{'active-list':selectedPlaylistId==$index}" ng-click="setSelectedPlaylist($index);">
+        ng-class="{'active-list':selectedPlaylistId==$index}" ng-init="selectedPlaylistId==$index ? playy = playlist"
+        ng-click="setSelectedPlaylist($index);">
         {{playlist.name}}
       </li>
     </ul>
@@ -34,13 +35,14 @@
   <div class="play-list">
     <div class="playlist-header">
       <h2 class="list-title">YouTube</h2>
-      <p class="task-count">{{songs.length}} songs</p>
+      <p class="song-count">{{songs.length}} songs</p>
     </div>
 
     <div class="playlist-body">
 
-      <div class="tasks">
-        <div ng-repeat="song in songs" class="task fadeIn">
+      <div class="songs">
+        {{playy}}
+        <div ng-repeat="song in songs" class="song fadeIn">
           <input type="checkbox" id="song-{{$index}}" />
           <label for="song-{{$index}}">
             <span class="custom-checkbox"></span>
@@ -50,7 +52,7 @@
       </div>
 
       <div class="new-song-creator">
-        <input type="text" class="new task" ng-keypress="$event.keyCode == 13 ? addSong() : null" ng-model="newSongName"
+        <input type="text" class="new song" ng-keypress="$event.keyCode == 13 ? addSong() : null" ng-model="newSongName"
           placeholder="new song" aria-label="new song" />
         <button class="btn create" ng-click="addSong()" aria-label="add new song">+</button>
       </div>

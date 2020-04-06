@@ -1,9 +1,20 @@
 [{
-  "name": "Youtube"
+  "id":0,
+  "name": "Youtube",
+  "songs": [
+    "Muse - Algorithm",
+    "Queen - Bohemian Rhapsody"
+  ]
 }, 
 {
-  "name": "Classical"
+  "id": 1,
+  "name": "Classical",
+  "songs": [
+    "Debussy - Clair de Lune",
+    "Beethoven - Moonlight Sonata"
+  ]
 },
 {
+  "id": 2,
   "name": "Trance"
 }]

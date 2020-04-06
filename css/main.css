@@ -47,11 +47,11 @@ body {
   margin: -0.3em 0 0.5em;
 }
 
-.all-tasks {
+.all-lists {
   grid-area: lists;
 }
 
-.task-list {
+.play-lists {
   font-size: 1.2rem;
   line-height: 1.7;
   list-style: circle;
@@ -151,7 +151,7 @@ form {
   font-size: 1.1rem;
 }
 
-.new.task {
+.new.song {
   margin-bottom: 0;
 }
 
@@ -178,7 +178,7 @@ form {
   margin: 0 1em 0 0;
 }
 
-.task-count {
+.song-count {
   margin: 0;
   font-size: 1rem;
 }
@@ -197,18 +197,18 @@ form {
   position: absolute;
 }
 
-.task label {
+.song label {
   display: flex-inline;
   align-items: center;
   position: relative;
 }
 
-.task {
+.song {
   position: relative;
   margin-bottom: 1.25em;
 }
 
-.task::after {
+.song::after {
   content: "";
   position: absolute;
   right: 0;
@@ -235,7 +235,7 @@ form {
   transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
 
-.task:hover .custom-checkbox,
+.song:hover .custom-checkbox,
 [type="checkbox"]:focus + label .custom-checkbox {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
@@ -252,7 +252,7 @@ form {
   opacity: 0.5;
 }
 
-.task label::after {
+.song label::after {
   content: "";
   position: absolute;
   left: 0;
