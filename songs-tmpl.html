@@ -1,0 +1,31 @@
+<div class="play-list">
+    <div class="playlist-header">
+      <h2 class="list-title">{{$ctrl.playListName}}</h2>
+      <p class="song-count">{{$ctrl.songs.length}} songs</p>
+    </div>
+
+    <div class="playlist-body">
+
+      <div class="songs">
+        {{playy}}
+        <div ng-repeat="song in $ctrl.songs" class="song fadeIn">
+          <input type="checkbox" id="song-{{$index}}" />
+          <label for="song-{{$index}}">
+            <span class="custom-checkbox"></span>
+            {{song}}
+          </label>
+        </div>
+      </div>
+
+      <div class="new-song-creator">
+        <input type="text" class="new song" ng-keypress="$event.keyCode == 13 ? addSong() : null" ng-model="newSongName"
+          placeholder="new song" aria-label="new song" />
+        <button class="btn create" ng-click="addSong()" aria-label="add new song">+</button>
+      </div>
+
+      <div class="delete-stuff">
+        <button class="btn delete" ng-click="clearListenedSongs()">Clear listened songs</button>
+        <button class="btn delete">Delete playlist</button>
+      </div>
+    </div>
+  </div>
