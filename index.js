@@ -42,6 +42,10 @@ app.controller("playlistCtrl", function ($scope, $http) {
   };
 
   $scope.setSelectedPlaylist = function (id) {
+    $scope.$broadcast("playListSelected", id);
     $scope.selectedPlaylistId = id;
   };
+  
+  $scope.setSelectedPlaylist($scope.selectedPlaylistId);
+ 
 });

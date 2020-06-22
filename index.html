@@ -19,12 +19,14 @@
   <div class="all-lists">
     <h2 class="play-list-title">My playlists</h2>
     <ul class="play-lists">
-      <li ng-repeat="(key, playlist) in playlists" class="list-name fadeIn" ng-model="selectedPlaylistId"
+      <li 
+        ng-repeat="(key, playlist) in playlists"
+        class="list-name fadeIn"
+        ng-model="selectedPlaylistId"
         ng-class="{'active-list':selectedPlaylistId==$index}"
         ng-click="setSelectedPlaylist($index);">
         {{playlist.name}}
   
-        <songs class="play-list" songs="playlist" play-list-id="selectedPlaylistId" play-list-name="playlist.name"> </songs>
       </li>
     </ul>
 
@@ -34,6 +36,8 @@
       <button class="btn create" ng-click="addPlaylist()" aria-label="create new playlist">+</button>
     </div>
   </div>
+
+  <songs class="play-list"> </songs>
 
 </body>
 

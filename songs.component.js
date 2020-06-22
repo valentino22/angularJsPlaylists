@@ -7,23 +7,25 @@
     
     function songsComponent() {
       return {
-        bindings: {
-          songs: '=',
-          playListName: '=',
-          playListId: '='
-        },
         controller: songsController,
         templateUrl: 'songs-tmpl.html'
       };
     }
 
-    songsController.$inject = [
-      '$scope'
-    ]
+    songsController.$inject = ["$scope"];
 
-    function songsController() {
-          var ctrl = this;
-          console.log(ctrl.playListName)
+    function songsController($scope) {
+      var ctrl = this;
+
+      $scope.$on("playListSelected", function (event, id) {
+        console.log(id);
+        ctrl.playListId = id;
+        ctrl.playListName = "Youtube";
+        ctrl.songs = [
+          "Muse - Algorithm",
+          "Queen - Bohemian Rhapsody"
+        ];
+      });
     };
 
 })()
